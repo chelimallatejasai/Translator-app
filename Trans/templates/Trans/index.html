@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Text Translator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+            font-family: 'Segoe UI', Arial, sans-serif;
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            background: #fff;
+            padding: 2.5rem 2rem 2rem 2rem;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+            max-width: 400px;
+            width: 100%;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+        input[type="text"] {
+            padding: 0.7rem 1rem;
+            border: 1px solid #bdbdbd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border 0.2s;
+        }
+        input[type="text"]:focus {
+            border: 1.5px solid #74ebd5;
+            outline: none;
+        }
+        select {
+            padding: 0.7rem 1rem;
+            border-radius: 8px;
+            border: 1px solid #bdbdbd;
+            font-size: 1rem;
+            background: #f7f7f7;
+            transition: border 0.2s;
+        }
+        select:focus {
+            border: 1.5px solid #74ebd5;
+            outline: none;
+        }
+        button {
+            padding: 0.8rem 0;
+            background: linear-gradient(90deg, #74ebd5 0%, #ACB6E5 100%);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(116, 235, 213, 0.15);
+            transition: background 0.2s, transform 0.1s;
+        }
+        button:hover {
+            background: linear-gradient(90deg, #ACB6E5 0%, #74ebd5 100%);
+            transform: translateY(-2px) scale(1.03);
+        }
+        .footer {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: #888;
+            font-size: 0.95rem;
+        }
+        @media (max-width: 500px) {
+            .container {
+                padding: 1.2rem 0.5rem 1rem 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Text Translator</h1>
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" name="translate" placeholder="Enter text to translate" required>
+            <select required name="language">
+                <option value="" disabled selected>Select language</option>
+                <option value="Hindi">Hindi</option>
+                <option value="Marathi">Marathi</option>
+                <option value="German">German</option>
+                <option value="French">French</option>
+                <option value="Spanish">Spanish</option>
+                <option value="Chinese">Chinese</option>
+                <option value="Japanese">Japanese</option>
+                <option value="Russian">Russian</option>
+                <option value="Arabic">Arabic</option>
+                <option value="Telugu">Telugu</option>
+                <option value="Portuguese">Portuguese</option>
+            </select>
+            <button type="submit">Translate</button>
+        </form>
+        <div class="footer">
+            &copy; {{ now|date:"Y" }} Translator App &middot; 
+        </div>
+    </div>
+</body>
+</html>

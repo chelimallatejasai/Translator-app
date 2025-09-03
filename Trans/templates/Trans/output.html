@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Translation Result</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #ACB6E5 0%, #74ebd5 100%);
+            font-family: 'Segoe UI', Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .result-box {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            text-align: center;
+        }
+        h2 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        p {
+            font-size: 1.2rem;
+            color: #555;
+        }
+        a {
+            display: inline-block;
+            margin-top: 1.5rem;
+            text-decoration: none;
+            color: #74ebd5;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-box">
+        <h2>Translated Text</h2>
+        <p>{{ translated_text }}</p>
+        <a href="{% url 'home' %}">Translate Another</a>
+    </div>
+</body>
+</html>
